@@ -1,0 +1,58 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Willhaben (3)",
+	"behavior": "create",
+	"noteContentFormat": "## Description\n{{selector:[data-testid='ad-description-Beschreibung'] p}}\n\n## Images\n{{selector:.flickity-slider img?src|replace:('_thumb':'')|image}}\n\n## Contact\nSeller: {{selector:[data-testid='top-contact-box-seller-name']}}\n{{selector:[data-testid='contact-box-dealer-top-Kontakt']}}\n\n## Category\n{{selector:[data-testid='breadcrumbs-item-level-*']}}\n",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{selector:h1}}",
+			"type": "text"
+		},
+		{
+			"name": "price",
+			"value": "{{selector:[data-testid='contact-box-price-box-price-value-0']}}",
+			"type": "text"
+		},
+		{
+			"name": "location",
+			"value": "{{selector:[data-testid='bottom-contact-box-address-box']}}",
+			"type": "text"
+		},
+		{
+			"name": "seller_type",
+			"value": "{{selector:[data-testid='contact-box-dealer-top-Kontakt']}}",
+			"type": "text"
+		},
+		{
+			"name": "seller",
+			"value": "{{selector:[data-testid='top-contact-box-seller-name']}}",
+			"type": "text"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "willhaben_id",
+			"value": "{{selector:[data-testid='ad-detail-ad-id']}}",
+			"type": "text"
+		},
+		{
+			"name": "images",
+			"value": "{{selector:.flickity-slider img?src|replace:('_thumb':'')|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "tags",
+			"value": "willhaben, marketplace",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://www.willhaben.at/iad/"
+	],
+	"noteNameFormat": "{{selector:h1}}",
+	"path": "RECHERCHE/Willhaben"
+}
