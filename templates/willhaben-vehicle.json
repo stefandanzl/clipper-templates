@@ -1,0 +1,84 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Willhaben Vehicle (2)",
+	"behavior": "create",
+	"noteContentFormat": "## Vehicle Details\n{{selector:[data-testid='attribute-title']|list}}{{selector:[data-testid='attribute-value']|list}}\n\n## Equipment & Features\n\n{{selector:[data-testid='equipment-value']|list}}\n\n\n## Description\n{{schema:description}}\n\n## Images\n{{schema:image|image}}\n\n## Contact\nSeller: {{schema:seller.givenName}}\nLocation: {{schema:offers.availableAtOrFrom.address.streetAddress}}, {{schema:offers.availableAtOrFrom.address.postalCode}} {{schema:offers.availableAtOrFrom.address.addressLocality}}\n{{schema:offers.availableAtOrFrom.address.addressRegion}}, {{schema:offers.availableAtOrFrom.address.addressCountry}}\n\n## Category\n{{selector:[data-testid='breadcrumbs-item-level-*']}}\n",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{schema:name}}",
+			"type": "text"
+		},
+		{
+			"name": "make",
+			"value": "{{schema:brand.name}}",
+			"type": "text"
+		},
+		{
+			"name": "model",
+			"value": "{{schema:model}}",
+			"type": "text"
+		},
+		{
+			"name": "price",
+			"value": "{{schema:offers.price}} {{schema:offers.priceCurrency}}",
+			"type": "text"
+		},
+		{
+			"name": "location",
+			"value": "{{schema:offers.availableAtOrFrom.address.streetAddress}}, {{schema:offers.availableAtOrFrom.address.postalCode}} {{schema:offers.availableAtOrFrom.address.addressLocality}}",
+			"type": "text"
+		},
+		{
+			"name": "seller",
+			"value": "{{schema:seller.givenName}}",
+			"type": "text"
+		},
+		{
+			"name": "mileage",
+			"value": "{{selector:[data-testid='ad-detail-teaser-attribute-1']}}",
+			"type": "text"
+		},
+		{
+			"name": "year",
+			"value": "{{selector:[data-testid='ad-detail-teaser-attribute-0']}}",
+			"type": "number"
+		},
+		{
+			"name": "engine",
+			"value": "{{selector:[data-testid='ad-detail-teaser-attribute-2']}}",
+			"type": "text"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "last_modified",
+			"value": "{{selector:[data-testid='ad-detail-ad-edit-date']}}",
+			"type": "text"
+		},
+		{
+			"name": "willhaben_id",
+			"value": "{{schema:sku}}",
+			"type": "text"
+		},
+		{
+			"name": "images",
+			"value": "{{schema:image}}",
+			"type": "multitext"
+		},
+		{
+			"name": "tags",
+			"value": "willhaben, vehicle, marketplace, {{schema:brand.name|lower}}",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://www.willhaben.at/iad/gebrauchtwagen/",
+		"https://www.willhaben.at/iad/gebrauchtwagen/auto-motorrad/"
+	],
+	"noteNameFormat": "{{schema:name}}",
+	"path": "RECHERCHE/Willhaben/Vehicles"
+}
